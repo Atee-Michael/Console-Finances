@@ -93,14 +93,9 @@ let finances = [
 
 // The total number of months included in the dataset.
   // Count up how many things are in the array
-  array.length;
-  for (let i = 0; i < finances.length; i++) {
-    console.log(i);
-    
-  }
-  console.log (finances.length);
-
   // Need a variable to store the value of array.length
+
+ 
 
 // The net total amount of Profit / Losses over the entire period.
   // Adding up the money
@@ -109,6 +104,8 @@ let finances = [
   // for loop to iterate over the array
     // Inside that for loop, access position 1 of each array element to get the numbers
 
+
+    
 // The average of the changes in Profit / Losses over the entire period.
 // You will need to track what the total change in profits are from month to month and then find the average.
 // (Total / Number of months)
@@ -139,7 +136,42 @@ let finances = [
     // Look up how to limit the answer to two decimal points
 
 // Sample decrementing for loop
-for (let i = arr.length - 1; i > 0; i--) {
-  
-}
 
+// 1. Total number of months
+let totalMonths = finances.length;
+console.log(`Total Months: ${totalMonths}`);
+
+// 2. Net total amount of Profit/Losses
+let netTotal = 0;
+for (let i = 0; i < finances.length; i++) {
+  netTotal += finances[i][1];
+}
+console.log(`Net total amount of Profit/Losses: ${netTotal}`);
+
+// 3. Average of changes in Profit/Losses
+let totalChange = 0;
+for (let i = 0; i < finances.length - 1; i++) {
+  totalChange += finances[i + 1][1] - finances[i][1];
+}
+let averageChange = totalChange / (finances.length - 1);
+console.log(`Average change in Profit/Losses: ${averageChange}`);
+
+// 4. Greatest increase in profits
+let greatestIncrease = { date: finances[0][0], amount: finances[0][1] };
+for (let i = 1; i < finances.length; i++) {
+  if (finances[i][1] > greatestIncrease.amount) {
+    greatestIncrease.date = finances[i][0];
+    greatestIncrease.amount = finances[i][1];
+  }
+}
+console.log(`Greatest increase in profits: ${greatestIncrease.date} - ${greatestIncrease.amount}`);
+
+// 5. Greatest decrease in losses
+let greatestDecrease = { date: finances[0][0], amount: finances[0][1] };
+for (let i = 1; i < finances.length; i++) {
+  if (finances[i][1] < greatestDecrease.amount) {
+    greatestDecrease.date = finances[i][0];
+    greatestDecrease.amount = finances[i][1];
+  }
+}
+console.log(`Greatest decrease in losses: ${greatestDecrease.date} - ${greatestDecrease.amount}`);
