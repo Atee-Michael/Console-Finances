@@ -135,7 +135,7 @@ let finances = [
   // Take that 'total changes amount' variable and divide it by the number of elements in the array
     // Look up how to limit the answer to two decimal points
 
-// Sample decrementing for loop
+
 
 // 1. Total number of months
 let totalMonths = finances.length;
